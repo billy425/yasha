@@ -318,8 +318,8 @@ class SvdField(SvdElement):
             "read": [],
             "write": [],
             "read-write": [],
-			"name": None,
-			"derivedFrom": None,
+            "name": None,
+            "derivedFrom": None,
         }
 
         if self.bitRange is not None:
@@ -335,10 +335,10 @@ class SvdField(SvdElement):
 
         try:
             for e in element.findall("enumeratedValues"):
-				if e.get("derivedFrom") is not None:
-					self.enumeratedValues['derivedFrom'] = e.get("derivedFrom")
-				if e.find("name") is not None:
-					self.enumeratedValues['name'] = e.find('name')
+                if e.get("derivedFrom") is not None:
+                    self.enumeratedValues['derivedFrom'] = e.get("derivedFrom")
+                if e.find("name") is not None:
+                    self.enumeratedValues['name'] = e.find('name')
                 try:
                     usage = e.find("usage").text
                 except AttributeError:

@@ -255,34 +255,34 @@ def test_field_element():
     assert field.bitOffset == 0
     assert field.bitWidth == 8
 
-	
+    
 def test_enumeratedValues_element():
     enumeratedValues = cmsis.SvdField(et.fromstring(
         """
         <enumeratedValues derivedFrom="BlockRegisterFieldEnums">
             <name>CLOCK_DIV0Enums</name>
             <enumeratedValue>
-				<name>CLOCK_DIV_2</name>
-				<description>Divide clock frequency by 2</description>
-				<value>0</value>
-			</enumeratedValue>
-		    <enumeratedValue>
-				<name>CLOCK_DIV_4</name>
-				<description>Divide clock frequency by 4</description>
-				<value>1</value>
-			</enumeratedValue>
-			<enumeratedValue>
-				<name>CLOCK_DIV_8</name>
-				<description>Divide clock frequency by 8</description>
-				<value>2</value>
-			</enumeratedValue>
+                <name>CLOCK_DIV_2</name>
+                <description>Divide clock frequency by 2</description>
+                <value>0</value>
+            </enumeratedValue>
+            <enumeratedValue>
+                <name>CLOCK_DIV_4</name>
+                <description>Divide clock frequency by 4</description>
+                <value>1</value>
+            </enumeratedValue>
+            <enumeratedValue>
+                <name>CLOCK_DIV_8</name>
+                <description>Divide clock frequency by 8</description>
+                <value>2</value>
+            </enumeratedValue>
         </enumeratedValues>
         """
     ))
     assert enumeratedValues.name == "CLOCK_DIV0Enums"
     assert enumeratedValues.derivedFrom == "BlockRegisterFieldEnums"
-	
-	
+    
+    
 def test_svdfile():
     file = cmsis.SVDFile(
         """
