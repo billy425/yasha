@@ -338,7 +338,7 @@ class SvdField(SvdElement):
                 if e.get("derivedFrom") is not None:
                     self.enumeratedValues['derivedFrom'] = e.get("derivedFrom")
                 if e.find("name") is not None:
-                    self.enumeratedValues['name'] = e.find('name')
+                    self.enumeratedValues['name'] = e.find('name').text
                 try:
                     usage = e.find("usage").text
                 except AttributeError:

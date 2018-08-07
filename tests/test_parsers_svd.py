@@ -257,8 +257,10 @@ def test_field_element():
 
     
 def test_enumeratedValues_element():
-    enumeratedValues = cmsis.SvdField(et.fromstring(
+    field = cmsis.SvdField(et.fromstring(
         """
+        <field>
+        <name>FieldID</name>
         <enumeratedValues derivedFrom="BlockRegisterFieldEnums">
             <name>CLOCK_DIV0Enums</name>
             <enumeratedValue>
@@ -277,10 +279,11 @@ def test_enumeratedValues_element():
                 <value>2</value>
             </enumeratedValue>
         </enumeratedValues>
+        </field>
         """
     ))
-    assert enumeratedValues.name == "CLOCK_DIV0Enums"
-    assert enumeratedValues.derivedFrom == "BlockRegisterFieldEnums"
+    assert field.enumeratedValues['name'] == "CLOCK_DIV0Enums"
+    assert field.enumeratedValues['derivedFrom'] == "BlockRegisterFieldEnums"
     
     
 def test_svdfile():
