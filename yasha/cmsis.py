@@ -87,7 +87,10 @@ class SvdElement(object):
                     try:
                         value = int(value)
                     except ValueError:  # It has to be hex
-                        value = int(value, 16)
+                        try:
+                            value = int(value, 16)
+                        except ValueError:
+                            pass
                 elif key in self.props_to_boolean:
                     value = value.lower() in ("yes", "true", "t", "1")
 
